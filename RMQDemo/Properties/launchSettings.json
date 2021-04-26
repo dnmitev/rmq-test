@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RMQDemo": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "RMQ_URL": "amqp://localhost"
+      }
+    }
+  }
+}

@@ -43,12 +43,16 @@ namespace ConsoleEventListener
             await busControl.StartAsync(source.Token);
             try
             {
-                for (var i = 0; i < 100; i++)
+                while (true)
                 {
-                    await busControl.Publish<ValueEntered>(new
+                    var datetime = DateTime.UtcNow;
+                    if (datetime.Minute % 2 == 0)
                     {
-                        Value = Guid.NewGuid().ToString("N")
-                    });
+                        await busControl.Publish<ValueEntered>(new
+                        {
+                            Value = $"{DateTime.UtcNow}-{Guid.NewGuid():N}"
+                        });
+                    }                   
                 }
             }
             finally

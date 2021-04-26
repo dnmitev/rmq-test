@@ -46,7 +46,7 @@ namespace ConsoleEventListener
                 while (true)
                 {
                     var datetime = DateTime.UtcNow;
-                    if (datetime.Minute % 2 == 0)
+                    if (datetime.Second % 5 == 0)
                     {
                         await busControl.Publish<ValueEntered>(new
                         {
